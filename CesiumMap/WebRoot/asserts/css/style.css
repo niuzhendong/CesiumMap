@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+html, body{
+    width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+}
+
+#cesiumContainer{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width: 100%; height: 100%;
+	overflow: hidden;
+}
+
+.toolbar-custom {
+    margin: 5px;
+    padding: 2px 5px;
+    z-index:100;
+    position: absolute;
+}
+.lanlat-custom {
+    margin: 3px;
+    padding: 0px 14%;
+    z-index:99;
+    position: absolute;
+    color:white;
+}
+#lanlat{
+	width: 100%;
+}
+
+#height{
+	width: 100%;
+}
+
+.hiddlen{
+	display: none;
+}

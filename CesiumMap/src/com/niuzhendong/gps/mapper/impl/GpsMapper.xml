@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niuzhendong.gps.mapper.IGpsDao" >
+ 	<!-- Result Map-->  
+    <resultMap type="java.util.Map" id="GeoDataMap">
+        <result property="objectid" column="objectid"/> 
+        <result property="mc" column="mc" />  
+        <result property="dz" column="dz" />  
+        <result property="dm" column="dm" /> 
+        <result property="shape" column="shape" jdbcType="CLOB" javaType = "java.lang.String"  typeHandler ="com.niuzhendong.gps.utils.OracleClobTypeHandler"/> 
+        <result property="area" column="area"/>
+  	</resultMap>  
+	<select id="getUserById" resultType="java.util.Map" parameterType="java.util.Map" >
+	  	SELECT * FROM user_t where  id = #{userId}
+	</select>
+	<select id="getGeoData" resultMap="GeoDataMap" parameterType="java.util.Map" >
+	  	select objectid,mc,dz,dm,sde.st_astext(shape) as shape,sde.st_area(shape) as area from ${table} t
+	</select>
+	<insert id="saveGpsData" parameterType="java.util.Map" >
+	  	INSERT INTO GPS_HISTROY
+		  (CITYCODE,
+		   RADIUS,
+		   LOCTYPE,
+		   LATITUDE,
+		   TIME,
+		   POI,
+		   CITY,
+		   LONGITUDE,
+		   DIRECTION,
+		   ADDRSTR,
+		   LOCATIONDESCRIBE,
+		   STREET,
+		   COUNTRY,
+		   COUNTRYCODE,
+		   DISTRICT,
+		   USERID)
+		VALUES
+		  (#{CityCode},
+		   #{Radius},
+		   #{LocType},
+		   #{Latitude},
+		   #{Time},
+		   #{Poi},
+		   #{City},
+		   #{Longitude},
+		   #{Direction},
+		   #{AddrStr},
+		   #{LocationDescribe},
+		   #{Street},
+		   #{Country},
+		   #{CountryCode},
+		   #{District},
+		   #{DeviceId})
+	</insert>
+</mapper>

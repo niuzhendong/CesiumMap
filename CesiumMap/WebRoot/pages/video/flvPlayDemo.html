@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>flv.js demo</title>
+    <style>
+        .mainContainer {
+			width: 95%;
+		    height: 95%;
+		    margin-top: auto;
+		    margin-bottom: auto;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+		.centeredVideo {
+		    width: 100%;
+		    height: 100%;
+		    background-color:black;
+		}
+    </style>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <video id="videoElement" class="centeredVideo" controls autoplay>Your browser is too old which doesn't support HTML5 video.</video>
+    </div>
+    <script src="./asserts/js/jquery.js"></script>
+    <script src="./flvPlay/flv.min.js"></script>
+    <script>
+   	(function($){
+		$.getUrlParam = function(name){
+			var reg = new RegExp("(^|&)"+name+"=([^&]*)(&|$)");
+			var r = window.location.search.substring(1).match(reg);
+			debugger;
+			if(r!=null)return unescape(r[2]);return null;
+		};
+	})(jQuery);
+    
+        var player = document.getElementById('videoElement');
+        if (flvjs.isSupported()) {
+            var flvPlayer = flvjs.createPlayer({
+                "type": "flv",
+    			"isLive": true,
+    			"cors":true,
+    			"url": "http://120.24.225.21:7001/live/"+$.getUrlParam("uuid")+".flv"
+    			//"url": "http://127.0.0.1/live.flv"
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load(); //加载
+        }else{
+        	alert("浏览器不支持实时视频查看");
+        }
+
+        function flv_destroy() {
+            player.pause();
+            player.unload();
+            player.detachMediaElement();
+            player.destroy();
+            player = null;
+        }
+
+    </script>
+</body>
+
+</html>
