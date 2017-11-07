@@ -16,6 +16,7 @@
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->  
     <context:component-scan base-package="com.niuzhendong.cesium.controller" />
     <context:component-scan base-package="com.niuzhendong.gps.controller" />
+    <context:component-scan base-package="com.niuzhendong.redis.controller" />
     <context:component-scan base-package="com.niuzhendong.websocket.controller" >
     	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>  
 	</context:component-scan>

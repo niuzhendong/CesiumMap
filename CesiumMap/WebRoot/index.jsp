@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</button>
 			    </div>
 			</div>
-			<div id="toolspage" class="layui-row layui-anim layui-anim-fadeout" >
+			<div id="toolspage" class="layui-row">
 				<div class="layui-col-xs6 layui-col-sm8 layui-col-md12">
 					<div class="layui-tab layui-tab-brief  layui-bg-black" lay-filter="TabBrief">
 					    <ul class="layui-tab-title">
@@ -43,52 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    </ul>
 					    <div class="layui-tab-content">
 					    	<div class="layui-tab-item layui-show">
-					    		<div class="layui-side-scroll">
-									<ul class="layui-nav layui-nav-tree site-demo-nav" lay-filter="demo">
-									  <li class="layui-nav-item layui-nav-itemed">
-									    <a>组件示例</a>
-									    <dl class="layui-nav-child">
-									      <dd id="newyork">
-									        <a href="#">
-									          <i class="layui-icon" style="top: 3px;">&#xe638;</i>
-									    <cite>纽约白模3DTiel标准</cite>
-									  </a>
-									</dd>
-									<dd id="guibo">
-									  <a href="#">
-									    <i class="layui-icon" style="position: relative; top: 3px;">&#xe63a;</i>
-									    <cite>倾斜摄影3DTiel标准</cite>
-									  </a>
-									</dd>
-									<dd id="qingxie">
-									  <a href="#">
-									    <i class="layui-icon" style="top: 1px;">&#xe637;</i>
-									        <cite>中国geojson格式</cite>
-									      </a>
-									    </dd>
-									    <dd id="bendi">
-									      <a href="#">
-									        <i class="layui-icon">&#xe633;</i>
-									        <cite>本地三维模型</cite>
-									      </a>
-									    </dd>
-									    <dd id="abuilding">
-									      <a href="#">
-									        <i class="layui-icon">&#xe633;</i>
-									        <cite>gltf三维模型</cite>
-									      </a>
-									    </dd>
-									     <dd id="sdeshape">
-									      <a href="#">
-									        <i class="layui-icon">&#xe633;</i>
-									        <cite>sdeshape格式</cite>
-									      </a>
-									    </dd>
-									  </dl>
-									</li>
-									<li class="layui-nav-item" style="height: 30px; text-align: center"></li>
-									  </ul>
-									</div>
+					    		内容1
 					    	</div>
 						    <div class="layui-tab-item">内容2</div>
 						    <div class="layui-tab-item">内容3</div>

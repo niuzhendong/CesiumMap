@@ -49,6 +49,7 @@ var tools = {
 			measure.init(tools.viewer);
 			var iframe = document.getElementsByClassName('cesium-infoBox-iframe')[0];
 			iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups allow-forms'); 
+			$("#toolspage").hide();
 			layer.msg('加载完成！',{time: 1000});
 		},
 		initEvent:function(){
@@ -113,13 +114,11 @@ var tools = {
 				  });
 				  $('#chutiyan').on('click', function(e){
 					  if(!tools.toolbar){
-						  $("#toolspage").removeClass("layui-anim-fadeout");
-						  $("#toolspage").addClass("layui-anim-fadein");
+						  $("#toolspage").show();
 						  $(e.currentTarget).children(".layui-icon").html("&#xe671;");
 						  tools.toolbar = true;
 					  }else{
-						  $("#toolspage").addClass("layui-anim-fadeout");
-						  $("#toolspage").removeClass("layui-anim-fadein");
+						  $("#toolspage").hide();
 						  $(e.currentTarget).children(".layui-icon").html("&#xe65f;");
 						  tools.toolbar = false;
 					  }

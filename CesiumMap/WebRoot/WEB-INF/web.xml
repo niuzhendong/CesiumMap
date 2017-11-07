@@ -21,6 +21,7 @@
         	classpath:config/spring-mybatis-mysql.xml
         	classpath:config/spring-mybatis-oracle.xml
         	classpath:config/spring-rabbit.xml
+        	classpath:config/spring-redis.xml
         </param-value>
     </context-param>  
     <!-- 编码过滤器 -->  
