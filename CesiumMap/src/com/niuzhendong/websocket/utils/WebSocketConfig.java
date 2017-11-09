@@ -1,4 +1,4 @@
-package com.niuzhendong.websocket.controller;
+package com.niuzhendong.websocket.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,12 +10,15 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
+import com.niuzhendong.websocket.controller.GpsWebSocketHandler;
+import com.niuzhendong.websocket.service.WebSocketHandtor;
+
 
 /** 
- * websocket 配置类, 采用websocket形式实现的通讯类似于直接使用tcp协议，属于底层协议，spring中应用层 
- * 采用高层的协议进行长连接通讯，stomp 
+ * websocket 锟斤拷锟斤拷锟斤拷, 锟斤拷锟斤拷websocket锟斤拷式实锟街碉拷通讯锟斤拷锟斤拷锟斤拷直锟斤拷使锟斤拷tcp协锟介，锟斤拷锟节底诧拷协锟介，spring锟斤拷应锟矫诧拷 
+ * 锟斤拷锟矫高诧拷锟叫拷锟斤拷锟叫筹拷锟斤拷锟斤拷通讯锟斤拷stomp 
  * @author tomZ 
- * @date 2016年11月2日 
+ * @date 2016锟斤拷11锟斤拷2锟斤拷 
  * @desc TODO 
  */  
 @Configuration  
@@ -27,7 +30,7 @@ public class WebSocketConfig extends WebMvcConfigurerAdapter implements WebSocke
     @Autowired  
     private WebSocketHandtor handshakeInterceptor;  
     /** 
-     * 注册支持的websocket 连接 
+     * 注锟斤拷支锟街碉拷websocket 锟斤拷锟斤拷 
      */  
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry reg) {
