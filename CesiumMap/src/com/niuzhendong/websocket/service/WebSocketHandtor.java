@@ -1,4 +1,4 @@
-package com.niuzhendong.websocket.controller;
+package com.niuzhendong.websocket.service;
 
 import java.util.Map;
 
@@ -12,9 +12,9 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 
 
 /** 
- * ½¨Á¢Á¬½Ó£¬ÎÕÊÖÀ¹½ØÆ÷ 
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
  * @author tomZ 
- * @date 2016Äê11ÔÂ2ÈÕ 
+ * @date 2016ï¿½ï¿½11ï¿½ï¿½2ï¿½ï¿½ 
  * @desc TODO 
  */  
 @Component
