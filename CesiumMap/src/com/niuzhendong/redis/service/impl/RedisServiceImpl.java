@@ -56,7 +56,7 @@ public class RedisServiceImpl implements IRedisService {
 	@Override
 	public String getHash(Map param) {
 		// TODO Auto-generated method stub
-		return null;
+		return redisDao.getHash(param);
 	}
 
 	@Override

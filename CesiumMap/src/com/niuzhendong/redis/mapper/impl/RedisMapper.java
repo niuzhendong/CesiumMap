@@ -1,6 +1,5 @@
 package com.niuzhendong.redis.mapper.impl;
 
-import java.io.Serializable;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,8 +16,6 @@ import com.niuzhendong.redis.mapper.IRedisDao;
 
 public class RedisMapper implements IRedisDao {
 
-	@Autowired
-    private StringRedisTemplate redisTemplate;
 	
 	@Resource(name="redisTemplate")
 	private ListOperations<String, String> listOps;
@@ -28,6 +25,12 @@ public class RedisMapper implements IRedisDao {
 	
 	@Resource(name="redisTemplate")
 	private SetOperations<String, String> setOps;
+	
+	@Resource(name="redisTemplate")
+	private ZSetOperations<String, String> zsetOps;
+	
+	@Resource(name="redisTemplate")
+	private ValueOperations<String, String> valueOps;
 	
 	@Override
 	public String saveList(Map param) {
@@ -39,8 +42,14 @@ public class RedisMapper implements IRedisDao {
 	@Override
 	public String saveHash(Map param) {
 		// TODO Auto-generated method stub
-		hashOps.put(param.get("db").toString(),param.get("id").toString(), param.get("name").toString());
-		return "2";
+		try {
+			hashOps.put(param.get("db").toString(),param.get("id").toString(), param.get("name").toString());
+			return "1";
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "0";
+		}
 	}
 
 	@Override
@@ -72,7 +81,14 @@ public class RedisMapper implements IRedisDao {
 	@Override
 	public String getHash(Map param) {
 		// TODO Auto-generated method stub
-		return null;
+		try {
+			String res = hashOps.get(param.get("db").toString(), param.get("id").toString());
+			return res;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "0";
+		}
 	}
 
 	@Override
