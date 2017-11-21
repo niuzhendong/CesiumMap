@@ -12,7 +12,7 @@
     <!-- 自动扫描 -->  
     <context:component-scan base-package="com.niuzhendong.gps" />  
   
-    <bean id="dataSource-oracle" class="org.apache.commons.dbcp.BasicDataSource"  
+    <bean id="dataSource-sde" class="org.apache.commons.dbcp.BasicDataSource"  
         destroy-method="close">  
         <property name="driverClassName" value="${sde.driver}" />  
         <property name="url" value="${sde.url}" />  
@@ -31,8 +31,8 @@
     </bean>  
   
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  
-    <bean id="sqlSessionFactory-oracle" class="org.mybatis.spring.SqlSessionFactoryBean">  
-        <property name="dataSource" ref="dataSource-oracle" />  
+    <bean id="sqlSessionFactory-sde" class="org.mybatis.spring.SqlSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource-sde" />  
         <!-- 自动扫描mapping.xml文件 -->  
         <property name="mapperLocations" value="classpath:com/niuzhendong/gps/mapper/impl/*.xml"></property>  
     </bean>  
@@ -40,13 +40,13 @@
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
         <property name="basePackage" value="com.niuzhendong.gps.mapper" />  
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory-oracle"></property>  
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory-sde"></property>  
     </bean>  
   
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->  
-    <bean id="transactionManager-oracle"  
+    <bean id="transactionManager-sde"  
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
-        <property name="dataSource" ref="dataSource-oracle" />  
+        <property name="dataSource" ref="dataSource-sde" />  
     </bean>  
   
 </beans>  

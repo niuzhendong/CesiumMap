@@ -2,6 +2,8 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String socketPath = "ws://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String user = request.getSession().getAttribute("user").toString();
 %>
 <!DOCTYPE html>
 <html>
@@ -13,15 +15,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <title>CesiumMap</title>
-  <link rel="stylesheet" href="./layui-2.1.5/css/layui.css">
-  <link type="text/css" rel="stylesheet" href="./Cesium-1.3.8/Widgets/widgets.css">
-  <link type="text/css" rel="stylesheet" href="./asserts/css/style.css">
-  <script src="./Cesium-1.3.8/Cesium.js"></script>
-  <script src="./layui-2.1.5/layui.js"></script>
-  <script src="./asserts/js/jquery.js"></script>
-  <script src="./asserts/js/measure.js"></script>
-  <script src="./asserts/js/tools.js"></script>
-  <script src="./asserts/js/webSocket.js"></script>
+  <link type="text/css" rel="stylesheet" href="<%=basePath%>layui-2.1.5/css/layui.css">
+  <link type="text/css" rel="stylesheet" href="<%=basePath%>Cesium-1.3.8/Widgets/widgets.css">
+  <link type="text/css" rel="stylesheet" href="<%=basePath%>asserts/css/style.css">
+  <script src="<%=basePath%>Cesium-1.3.8/Cesium.js"></script>
+  <script src="<%=basePath%>layui-2.1.5/layui.js"></script>
+  <script src="<%=basePath%>asserts/js/plugin/jquery.js"></script>
+  <script>
+  	var user = '<%=user%>';
+  	var path = {};
+  	path.basePath = '<%=basePath%>';
+  	path.socketPath = '<%=socketPath%>';
+  </script>
+  <script src="<%=basePath%>asserts/js/index/measure.js"></script>
+  <script src="<%=basePath%>asserts/js/index/tools.js"></script>
+  <script src="<%=basePath%>asserts/js/index/imtools.js"></script>
+  <script src="<%=basePath%>asserts/js/index/init.js"></script>
+  <script src="<%=basePath%>asserts/js/index/webSocket.js"></script>
 </head>
 <body>
 	<div id ="cesiumContainer">

@@ -84,7 +84,7 @@ var measure = {
 		dorwPoint:function(cartesian,uuid){
 			var measurepoint = measure.viewer.entities.add({
 				  name : 'measurepoint',
-				  description: '<iframe width="400" height="300" src=".page/video/flvPlayDemo.html?uuid='+uuid+'" frameborder="0" allowfullscreen></iframe>',
+				  description: '<iframe width="400" height="300" src="'+path.basePath+'page/video/flvPlayDemo.html?uuid='+uuid+'" frameborder="0" allowfullscreen></iframe>',
 				  position : cartesian,
 				  point : {
 				    pixelSize : 5,

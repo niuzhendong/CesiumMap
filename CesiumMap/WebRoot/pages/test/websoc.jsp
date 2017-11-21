@@ -4,22 +4,43 @@
     <title>WebSocket</title>  
 </head>  
 <body>  
-<div id="main">  
-    <div id="message"></div>  
+<div id="main">
+	<div>
+    	user:<input id="user"/>
+    	touser:<input id="touser"/>
+    	data:<input id="input"/>
+    	<button onclick="doSend();" >send</button>
+    </div>
+    <div id="message"></div>
 </div>  
 </body>  
 <script type="text/javascript">  
-    var websocket = null;  
+    var websocket = null;
+    //var IMwebsocket = null;  
   
     //判断当前浏览器是否支持WebSocket  
     if ('WebSocket' in window) {  
         //创建一个WebSocket连接，URL：127.0.0.1:8080/realTimeWebSocket/webSocket  
         //注：后端Server在模块realTimeWebSocket下，所以路径下多了一层realTimeWebSocket  
-        websocket = new WebSocket("ws://182.92.123.67:8080/CesiumMap/rest/gpswebsocket");  
+        //IMwebsocket = new WebSocket("ws://localhost:8080/CesiumMap/rest/gpswebsocket");
+        websocket = new WebSocket("ws://localhost:8080/CesiumMap/rest/imwebsocket?user=niu");  
     }  
     else {  
         alert('当前浏览器 不支持WebSocket')  
     }  
+  
+  	function doSend(){
+  		var data = document.getElementById("input").value;
+  		var user = document.getElementById("user").value;
+  		var touser = document.getElementById("touser").value;
+	  	var msg = {
+	  		client:'web',
+			from:user,
+			to:touser,
+			msg:data
+		};
+  		websocket.send(JSON.stringify(msg));
+  	}
   
     //连接发生错误的回调方法  
     websocket.onerror = function () {  
@@ -49,6 +70,6 @@
     //将消息显示在网页上，如果不需要显示在网页上，则不调用该方法  
     function setMessageInnerHTML(innerHTML) {  
         document.getElementById('message').innerHTML += innerHTML + '<br/>';  
-    }  
+    }
 </script>  
 </html>

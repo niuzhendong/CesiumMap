@@ -1,48 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>login.html</title>
-    <meta name="keywords" content="keyword1,keyword2,keyword3">
-    <meta name="description" content="this is my page">
-    <meta name="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="./layui-2.1.5/css/layui.css">
-	<script src="./layui-2.1.5/layui.js"></script>
-	<script src="./asserts/js/jquery.js"></script>
-	<script src="./asserts/js/login.js"></script>
-  </head>
-  
-  <body>
-    <div class="layui-row">
-    	<div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
-		    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-			  <legend>用户登录</legend>
-			</fieldset>
-	 
-			<form class="layui-form" action="">
-	
-			  <div class="layui-form-item">
-			    <label class="layui-form-label">用户名：</label>
-			    <div class="layui-input-inline">
-			      <input type="text" name="username" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
-			    </div>
-			  </div>
-			  
-			  <div class="layui-form-item">
-			    <label class="layui-form-label">密      码：</label>
-			    <div class="layui-input-inline">
-			      <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
-			    </div>
-			    <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
-			  </div>
-			  
-			  <div class="layui-form-item">
-			    <div class="layui-input-block">
-			      <button class="layui-btn" lay-submit lay-filter="demo1">立即提交</button>
-			      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-			    </div>
-			  </div>
-			</form>
-		</div>
-      </div>
-  </body>
-</html>
+<!-- saved from url=(0067)http://www.17sucai.com/preview/668095/2017-07-19/perfect/index.html -->
+<html lang="en" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>login</title>
+<link rel="stylesheet" type="text/css" href="./asserts/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="./asserts/css/demo.css">
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" href="./asserts/css/component.css">
+</head>
+<body>
+		<div class="container demo-1">
+			<div class="content">
+				<div id="large-header" class="large-header" style="height: 613px;">
+					<canvas id="demo-canvas" width="1366" height="613"></canvas>
+					<div class="logo_box">
+						<h3>欢迎你</h3>
+						<form>
+							<div class="input_outer">
+								<span class="u_user"></span>
+								<input id="logname" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">
+							</div>
+							<div class="input_outer">
+								<span class="us_uer"></span>
+								<input id="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;" value="" type="password" placeholder="请输入密码">
+							</div>
+							<div class="mb2">
+								<a class="act-but submit" href="javascript:login();" style="color: #FFFFFF">登录</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!-- /container -->
+		<script src="../../asserts/js/plugin/jquery.js"></script>
+		<script src="./asserts/js/TweenLite.min.js"></script>
+		<script src="./asserts/js/EasePack.min.js"></script>
+		<script src="./asserts/js/rAF.js"></script>
+		<script src="./asserts/js/demo-1.js"></script>
+		<script src="../../asserts/js/pages/login/login.js"></script>
+</body></html>

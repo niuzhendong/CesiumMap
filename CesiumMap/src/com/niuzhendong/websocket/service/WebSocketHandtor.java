@@ -2,6 +2,7 @@ package com.niuzhendong.websocket.service;
 
 import java.util.Map;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.server.ServerHttpRequest;
@@ -37,9 +38,9 @@ public class WebSocketHandtor implements HandshakeInterceptor {
         * This is a bug,bug fix:The extension [x-webkit-deflate-frame] is not supported  
         */    
        if(req.getHeaders().containsKey("Sec-WebSocket-Extensions")) {    
-           req.getHeaders().set("Sec-WebSocket-Extensions", "permessage-deflate");    
-         }    
-       return true;  
+           req.getHeaders().set("Sec-WebSocket-Extensions", "permessage-deflate");
+       }
+       return true;
 	}
 
 }

@@ -288,9 +288,3 @@ var tools = {
 			layer.msg('加载完成！',{time: 1000}); 
 		}
 }
-
-$(document).ready(function(){
-	layui.use('layer', function(){
-		tools.init();
-	});
-});
