@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niuzhendong.im.mapper.IImDao" >
+ 
+  <select id="getUser" resultType="java.util.Map" parameterType="java.util.Map" >
+  	select * from IM_USER_T t where  username = #{username}
+  </select>  
+  <select id="getFriends" resultType="java.util.Map" parameterType="java.util.Map" >
+  	select * from IM_FRIEND_T t where ownerid = #{username}
+  </select>
+  <select id="getGroup" resultType="java.util.Map" parameterType="java.util.Map" >
+  	select * from IM_GROUP_T t where  OWNERID = #{username}
+  </select>
+  <select id="getFriendUsers" resultType="java.util.Map" parameterType="java.util.Map" >
+  	SELECT *
+	  FROM IM_USER_T T
+	 WHERE USERNAME IN
+	       (SELECT FORGANID FROM IM_FRIEND_USER_T B WHERE GROUPID = #{groupid})
+  </select>
+  <select id="getOrganList" resultType="java.util.Map" parameterType="java.util.Map" >
+  	SELECT * FROM cesium.user_t where  id = #{id};
+  </select>
+</mapper>
